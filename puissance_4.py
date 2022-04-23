@@ -57,6 +57,8 @@ def mouvement_jeton(event):
     global joueur, configuration
     x = event.x
     ligne = -1
+    
+    #Détermination de la colonne sur laquelle le joueur a cliqué
     if x<100:
         colonne = 0
     if 100<x<200:
@@ -71,6 +73,7 @@ def mouvement_jeton(event):
         colonne = 5
     if 600<x<700:
         colonne = 6
+        
     while configuration[ligne][colonne] != 0:
         ligne -= 1
     if joueur == 1:
