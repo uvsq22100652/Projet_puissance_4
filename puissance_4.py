@@ -89,41 +89,44 @@ def mouvement_jeton(event):
 # Affichage graphique
 
 racine = tk.Tk()
+racine.title("Jeu PUISSANCE 4")
 canvas = tk.Canvas(racine, width=DIAMETRE_JETON*NOMBRE_COLONNE, height=DIAMETRE_JETON*NOMBRE_LIGNE, bg="blue")
 
-##Création des boutons
+##Création des boutons, des labels et des zones de saisie
 demarrer = tk.Button(racine, text = "Start", width = 15, height = 1, font = "helvetica, 15")
 
-label_mode = tk.Label(racine, text = "Choix du mode de jeu")
 joueur = tk.Button(racine, text = "joueur1  vs joueur2", font = "helvetica, 15")
 machine = tk.Button(racine, text = "joueur vs machine", font = "helvetica, 15")
 
-label_nbr_lignes = tk.Label(racine, text = "Entrer le nombre \n de lignes", font = "helvetica, 12")
+label_nbr_lignes = tk.Label(racine, text = "Entrer le nombre \n de lignes", font = "helvetica, 12", fg = "red")
 lignes = tk.Entry(racine)
 
-label_nbr_colonnes = tk.Label(racine, text = "Entrer le nombre \n de colonnes", font = "helvetica, 12")
+label_nbr_colonnes = tk.Label(racine, text = "Entrer le nombre \n de colonnes", font = "helvetica, 12", fg = "red")
 colonnes = tk.Entry(racine)
 
-label_nbr_jetons = tk.Label (racine, text = "Entrer le nombre de \n jetons à aligner", font = "helvetica, 12")
+label_nbr_jetons = tk.Label (racine, text = "Entrer le nombre de \n jetons à aligner", font = "helvetica, 12", fg = "red")
 jeton_aligner= tk.Entry(racine)
 
+label_puissance_4 = tk.Label(racine, text = "PUISSANCE 4", font = "helvetica, 30", )
+
 ##Positionnement des boutons
-demarrer.grid(column = 2, row = 1)
+demarrer.grid(column = 2, row = 2)
 
-#label_mode.grid(column = 2, row = 1)
-joueur.grid(column = 0, row = 1)
-machine.grid(column = 1, row = 1)
+joueur.grid(column = 0, row = 2)
+machine.grid(column = 1, row = 2)
 
-label_nbr_lignes.grid(column = 0, row = 2)
-lignes.grid(column = 0, row = 3)
+label_nbr_lignes.grid(column = 0, row = 3)
+lignes.grid(column = 0, row = 4)
 
-label_nbr_colonnes.grid(column = 1, row = 2)
-colonnes.grid(column = 1, row = 3)
+label_nbr_colonnes.grid(column = 1, row = 3)
+colonnes.grid(column = 1, row = 4)
 
-label_nbr_jetons.grid(column = 2, row = 2)
-jeton_aligner.grid(column = 2, row = 3)
+label_nbr_jetons.grid(column = 2, row = 3)
+jeton_aligner.grid(column = 2, row = 4)
 
-canvas.grid(columnspan = 12, column = 0, row =0)
+label_puissance_4.grid(column = 0, columnspan = 3, row = 0)
+
+canvas.grid(columnspan = 3, column = 0, row =1)
 
 canvas.bind('<Button>', mouvement_jeton )
 
