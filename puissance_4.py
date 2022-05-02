@@ -7,6 +7,7 @@
 #########################################################
 
 # Librairies
+from re import I
 import tkinter as tk
 
 # Constantes
@@ -83,6 +84,13 @@ def mouvement_jeton(event):
         configuration[ligne][colonne] = 2
         joueur = 1
     affichage_jeuton()
+
+
+def gagnant():
+    global joueur, configuration
+    if configuration[ligne][colonne]==configuration[ligne+1][colonne]==configuration[ligne+2][colonne]==configuration[ligne+3][colonne]:
+        print("joueur", joueur, "a gagné")
+    
     
     
 # Affichage graphique
