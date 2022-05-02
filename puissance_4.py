@@ -90,6 +90,8 @@ def gagnant():
     global joueur, configuration
     if configuration[ligne][colonne]==configuration[ligne+1][colonne]==configuration[ligne+2][colonne]==configuration[ligne+3][colonne]:
         print("joueur", joueur, "a gagné")
+    elif configuration[ligne][colonne]==configuration[ligne+1][colonne+1]==configuration[ligne+2][colonne+2]==configuration[ligne+3][colonne+3]:
+        print("joueur", joueur, "a gagné")
     
     
     
