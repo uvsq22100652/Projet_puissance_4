@@ -55,7 +55,7 @@ def affichage_jeuton():
 def mouvement_jeton(event):
     """Fonction qui permet de faire tomber le jeton dans la
     grille jusqu'à toucher le fond ou un autre jeton"""
-    global joueur, configuration
+    global joueur, configuration, ligne, colonne
     x = event.x
     ligne = -1
     
@@ -87,11 +87,15 @@ def mouvement_jeton(event):
 
 
 def gagnant():
-    global joueur, configuration
-    if configuration[ligne][colonne]==configuration[ligne+1][colonne]==configuration[ligne+2][colonne]==configuration[ligne+3][colonne]:
-        print("joueur", joueur, "a gagné")
-    elif configuration[ligne][colonne]==configuration[ligne+1][colonne+1]==configuration[ligne+2][colonne+2]==configuration[ligne+3][colonne+3]:
-        print("joueur", joueur, "a gagné")
+    global joueur, configuration, ligne, colonne
+    for ligne in range(NOMBRE_LIGNE):
+        for colonne in range(NOMBRE_COLONNE):
+            if configuration[ligne][colonne]==configuration[ligne+1][colonne]==configuration[ligne+2][colonne]==configuration[ligne+3][colonne]:
+                print("joueur", joueur, "a gagné")
+            elif configuration[ligne][colonne]==configuration[ligne+1][colonne+1]==configuration[ligne+2][colonne+2]==configuration[ligne+3][colonne+3]:
+                print("joueur", joueur, "a gagné")
+            elif configuration[ligne][colonne]==configuration[ligne][colonne+1]==configuration[ligne][colonne+2]==configuration[ligne][colonne+3]:
+                print("joueur", joueur, "a gagné")
     
     
     
